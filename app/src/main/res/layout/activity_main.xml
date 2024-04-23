@@ -45,4 +45,15 @@
         app:layout_constraintEnd_toEndOf="@+id/container"
         app:layout_constraintTop_toTopOf="@id/container" />
 
+    <View
+        android:layout_width="380dp"
+        android:layout_height="350dp"
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
