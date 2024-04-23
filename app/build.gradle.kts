@@ -8,7 +8,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.mangabit"
+        applicationId = "com.mangabit_fate"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
