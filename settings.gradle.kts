@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MangaBit"
+rootProject.name = "mangabit"
 include(":app")
 include(":domain")
