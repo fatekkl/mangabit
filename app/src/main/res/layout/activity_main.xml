@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="@+id/container"
         app:layout_constraintTop_toTopOf="@id/container" />
 
-    <View
+    <ScrollView
         android:layout_width="380dp"
         android:layout_height="350dp"
         android:background="@drawable/roundstyle"
