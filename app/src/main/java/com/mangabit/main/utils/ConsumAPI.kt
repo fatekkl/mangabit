@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 
 
-fun getData():String?{
+private fun getData():String?{
     val client = OkHttpClient()
 
     val request = Request.Builder()
@@ -26,7 +26,7 @@ fun getData():String?{
 
 
 
-fun parseJson (jsonString: String?): MangaParser {
+private fun parseJson (jsonString: String?): MangaParser {
     val gson = Gson()
 
     val jsonObject = JsonParser.parseString(jsonString).asJsonObject
@@ -36,5 +36,10 @@ fun parseJson (jsonString: String?): MangaParser {
     return gson.fromJson(data , MangaParser::class.java)
 }
 
+
+
+fun getManga(): MangaParser {
+    return parseJson(getData())
+}
 
 
