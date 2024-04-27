@@ -15,7 +15,7 @@ class MangaAdapter(private val mangas: List<MangaParser>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MangaViewHolder {
         val inflater = LayoutInflater.from(parent.context)
 
-        val view = inflater.inflate(R.layout.manga_layout , parent , false)
+        val view = inflater.inflate(R.layout.manga_layout, parent, false)
 
         return MangaViewHolder(view)
     }
