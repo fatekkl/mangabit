@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         val recyclerview = findViewById<RecyclerView>(R.id.recycler_view)
         val adapter = MangaAdapter(getManga())
 
+        recyclerview.adapter = adapter
+
 
     }
 }

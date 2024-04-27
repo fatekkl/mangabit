@@ -1,6 +1,7 @@
 package com.mangabit.main.utils
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +21,7 @@ class MangaAdapter(private val mangas: List<MangaParser>) :
     }
 
     override fun onBindViewHolder(holder: MangaViewHolder, position: Int) {
+        println(mangas[position])
         holder.bind(mangas[position])
     }
 
@@ -34,6 +36,9 @@ class MangaAdapter(private val mangas: List<MangaParser>) :
             with(itemView) {
                 val manga_title = findViewById<TextView>(R.id.manga_title)
                 val manga_desc = findViewById<TextView>(R.id.manga_desc)
+
+                manga_title.text = data.title
+                manga_desc.text =  data.type
             }
         }
 
