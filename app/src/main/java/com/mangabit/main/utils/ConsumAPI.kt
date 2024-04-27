@@ -11,7 +11,7 @@ private fun getData():String?{
     val client = OkHttpClient()
 
     val request = Request.Builder()
-        .url("https://api.jikan.moe/v4/random/manga")
+        .url("https://api.jikan.moe/v4/top/manga")
         .build()
 
 
@@ -26,19 +26,18 @@ private fun getData():String?{
 
 
 
-private fun parseJson (jsonString: String?): MangaParser {
+private fun parseJson (jsonString: String?): List<MangaParser> {
     val gson = Gson()
 
     val jsonObject = JsonParser.parseString(jsonString).asJsonObject
 
-    val data = jsonObject.getAsJsonObject("data")
+    val data = jsonObject.getAsJsonArray("data")
 
-    return gson.fromJson(data , MangaParser::class.java)
+    return gson.fromJson(data , Array<MangaParser>::class.java).toList()
 }
 
 
-
-fun getManga(): MangaParser {
+fun getManga(): List<MangaParser> {
     return parseJson(getData())
 }
 
