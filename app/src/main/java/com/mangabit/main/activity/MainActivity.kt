@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mangabit.R
 import com.mangabit.main.utils.MangaAdapter
 import com.mangabit.main.utils.getManga
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,12 +22,16 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        GlobalScope.launch {
+            val recyclerview = findViewById<RecyclerView>(R.id.recycler_view)
+            val adapter = MangaAdapter(getManga())
 
-        val recyclerview = findViewById<RecyclerView>(R.id.recycler_view)
-        val adapter = MangaAdapter(getManga())
+            runOnUiThread { recyclerview.adapter = adapter }
 
-        recyclerview.adapter = adapter
 
+        }
 
     }
+
+
 }
