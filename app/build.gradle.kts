@@ -45,6 +45,9 @@ dependencies {
     implementation(libs.firebase.crashlytics.buildtools)
     implementation(libs.okhttp)
     implementation(libs.gson)
+    implementation(libs.kotlinx.coroutines.android)
+
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
