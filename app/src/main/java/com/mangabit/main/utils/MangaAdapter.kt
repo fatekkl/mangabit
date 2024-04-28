@@ -1,8 +1,10 @@
 package com.mangabit.main.utils
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mangabit.R
@@ -30,15 +32,22 @@ class MangaAdapter(private val mangas: List<MangaParser>) :
     }
 
 
+
     class MangaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(data: MangaParser) {
             with(itemView) {
                 val manga_title = findViewById<TextView>(R.id.manga_title)
                 val manga_desc = findViewById<TextView>(R.id.manga_desc)
+                val manga_img = findViewById<ImageView>(R.id.manga_img)
+
+
+
 
                 manga_title.text = data.title
                 manga_desc.text =  data.type
+                manga_img.setImageURI(Uri.parse(data.getImage().toString()))
+
             }
         }
 

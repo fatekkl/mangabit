@@ -32,7 +32,7 @@ private fun getData(): String? {
 private fun parseJson(jsonString: String?): List<MangaParser> {
     val gson = Gson()
 
-    val jsonObject = JsonParser.parseString(jsonString).asJsonObject
+    val jsonObject = JsonParser.parseString(jsonString) .asJsonObject
 
     val data = jsonObject.getAsJsonArray("data")
 
@@ -43,5 +43,4 @@ private fun parseJson(jsonString: String?): List<MangaParser> {
 fun getManga(): List<MangaParser> {
     return parseJson(getData())
 }
-
 
