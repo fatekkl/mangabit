@@ -1,13 +1,13 @@
 package com.mangabit.main.model
 
-import com.google.gson.JsonArray
+import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 
 
 data class MangaParser(
     val mal_id: Int,
-//    val url: String,
-//    val images: JsonObject,
+    val url: String,
+    val images: JsonObject,
 //    val approved: Boolean,
 //    val titles: JsonArray,
     val title: String,
@@ -35,7 +35,9 @@ data class MangaParser(
 
 ) {
 
-    fun showManga() {
-        println(title)
+    fun getImage(): JsonElement {
+        val jpgImages = images.getAsJsonObject("jpg")
+
+        return jpgImages.get("image_url")
     }
 }
