@@ -35,9 +35,9 @@ data class MangaParser(
 
 ) {
 
-    fun getImage(): JsonElement {
+    fun getImage(): String?{
         val jpgImages = images.getAsJsonObject("jpg")
 
-        return jpgImages.get("image_url")
+        return jpgImages.get("image_url")?.asString
     }
 }
