@@ -1,12 +1,13 @@
 package com.mangabit.main.utils
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.mangabit.R
 import com.mangabit.main.model.MangaParser
 
@@ -41,12 +42,19 @@ class MangaAdapter(private val mangas: List<MangaParser>) :
                 val manga_desc = findViewById<TextView>(R.id.manga_desc)
                 val manga_img = findViewById<ImageView>(R.id.manga_img)
 
-
-
+                val imageUrl = data.getImage()
 
                 manga_title.text = data.title
                 manga_desc.text =  data.type
-                manga_img.setImageURI(Uri.parse(data.getImage().toString()))
+
+                if(!imageUrl.isNullOrEmpty()) {
+                    Glide.with(context)
+                        .load(imageUrl)
+                        .into(manga_img)
+                } else {
+                    Toast.makeText(context , "Failed to load image", Toast.LENGTH_SHORT).show()
+                }
+
 
             }
         }
