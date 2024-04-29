@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:background="@drawable/roundstyle"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="20dp"
+    >
 
     <ImageView
         android:id="@+id/manga_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/manga_title"
         app:layout_constraintEnd_toStartOf="@id/manga_title"
@@ -25,7 +28,7 @@
         android:layout_height="wrap_content"
         tools:text="Manga Titulo"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="20sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@+id/manga_img"
         app:layout_constraintBottom_toTopOf="@+id/manga_desc"
         />
