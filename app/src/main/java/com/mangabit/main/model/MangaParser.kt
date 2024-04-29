@@ -16,12 +16,12 @@ data class MangaParser(
     val type: String = "Manga",
 //    val chapters: Int,
 //    val volumes: Int,
-//    val status: String,
+    val status: String,
 //    val publishing: Boolean,
 //    val published: JsonObject,
 //    val score: Int,
 //    val scored_by: Int,
-//    val rank: Int,
+    val rank: Int,
 //    val popularity: Int,
 //    val members: Int,
 //    val synopsis: String,
@@ -37,7 +37,6 @@ data class MangaParser(
 
     fun getImage(): String?{
         val jpgImages = images.getAsJsonObject("jpg")
-
         return jpgImages.get("image_url")?.asString
     }
 }

@@ -1,5 +1,6 @@
 package com.mangabit.main.utils
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +46,8 @@ class MangaAdapter(private val mangas: List<MangaParser>) :
                 val imageUrl = data.getImage()
 
                 mangaTitle.text = data.title
-                mangaDesc.text =  data.type
+                mangaDesc.text =  data.status
+
 
                 if(!imageUrl.isNullOrEmpty()){
                     Glide.with(context)

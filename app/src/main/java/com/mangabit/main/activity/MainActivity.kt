@@ -1,6 +1,7 @@
 package com.mangabit.main.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.UiThread
 import androidx.appcompat.app.AppCompatActivity
@@ -28,13 +29,12 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-       CoroutineScope(Dispatchers.Default).launch {
+       MainScope().launch {
             val recyclerview = findViewById<RecyclerView>(R.id.recycler_view)
             val adapter = MangaAdapter(getManga())
 
-            withContext(Dispatchers.Main) {
-                recyclerview.adapter = adapter
-            }
+           recyclerview.adapter = adapter
+
 
 
         }

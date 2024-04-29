@@ -1,8 +1,11 @@
 package com.mangabit.main.utils
 
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.mangabit.main.model.MangaParser
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
@@ -18,7 +21,7 @@ private fun getData(): String? {
     return  try {
         client.newCall(request).execute().use { response ->
             if(!response.isSuccessful) {
-                throw IOException("Error: $response")
+                throw Exception("Error: $response")
             }
             response.body?.string()
         }
@@ -32,7 +35,7 @@ private fun getData(): String? {
 private fun parseJson(jsonString: String?): List<MangaParser> {
     val gson = Gson()
 
-    val jsonObject = JsonParser.parseString(jsonString) .asJsonObject
+    val jsonObject = JsonParser.parseString(jsonString).asJsonObject
 
     val data = jsonObject.getAsJsonArray("data")
 
@@ -40,7 +43,7 @@ private fun parseJson(jsonString: String?): List<MangaParser> {
 }
 
 
-fun getManga(): List<MangaParser> {
-    return parseJson(getData())
+suspend fun getManga(): List<MangaParser>  = withContext(Dispatchers.Default){
+    parseJson(getData())
 }
 
