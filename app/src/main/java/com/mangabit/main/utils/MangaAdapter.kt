@@ -38,19 +38,19 @@ class MangaAdapter(private val mangas: List<MangaParser>) :
 
         fun bind(data: MangaParser) {
             with(itemView) {
-                val manga_title = findViewById<TextView>(R.id.manga_title)
-                val manga_desc = findViewById<TextView>(R.id.manga_desc)
-                val manga_img = findViewById<ImageView>(R.id.manga_img)
+                val mangaTitle: TextView = findViewById(R.id.manga_title)
+                val mangaDesc: TextView = findViewById(R.id.manga_desc)
+                val mangaImg: ImageView = findViewById(R.id.manga_img)
 
                 val imageUrl = data.getImage()
 
-                manga_title.text = data.title
-                manga_desc.text =  data.type
+                mangaTitle.text = data.title
+                mangaDesc.text =  data.type
 
-                if(!imageUrl.isNullOrEmpty()) {
+                if(!imageUrl.isNullOrEmpty()){
                     Glide.with(context)
                         .load(imageUrl)
-                        .into(manga_img)
+                        .into(mangaImg)
                 } else {
                     Toast.makeText(context , "Failed to load image", Toast.LENGTH_SHORT).show()
                 }
